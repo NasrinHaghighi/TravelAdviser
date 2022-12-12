@@ -11,10 +11,10 @@ function App() {
 
   const [places, setPlaces] =useState<AxiosResponse | null | void>([] as any)
   useEffect(() => {
-    getPlacesData().then((data)=>{
-      setPlaces(data)
-      console.log(data)
-    })
+    // getPlacesData().then((data)=>{
+    //   setPlaces(data)
+    //   console.log(data)
+    // })
   }, [])
   return (
     <div>
