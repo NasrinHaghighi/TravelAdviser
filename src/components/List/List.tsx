@@ -8,12 +8,16 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Grid from '@mui/material/Grid';
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 
+interface place{
+  place:any
+}
+interface places{
+ places:place[]
+}
 
 
 
-const palces=[1,2,3,4]
-
-function List() {
+function List({places}:places) {
     const [type, setType] =useState<String>('resturants')
     const [rate, setRate] =useState<String>('')
 
@@ -58,7 +62,7 @@ function List() {
   </Box>
   <Grid container spacing={2}>
   <Grid item xs={12}>
-  {palces && palces.map((place, i)=>{
+  {places && places.map((place, i)=>{
     return <Grid key={i} xs={12}>
         <PlaceDetails place={place} />
     </Grid>

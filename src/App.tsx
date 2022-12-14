@@ -7,13 +7,19 @@ import List from './components/List/List';
 import { CssBaseline, Grid } from "@mui/material";
 import {getPlacesData} from './api/index'
 
+interface place{
+  place:any
+}
+interface places{
+ places:place[]
+}
 
 
 function App() {
 
-  const [places, setPlaces] =useState<AxiosResponse | null | void>([] as any)
+  const [places, setPlaces] =useState([])
   const [coordinates, setCordinates] =useState({})
-  const [bounds, setBounds] =useState<any>(coordinates)
+  const [bounds, setBounds] =useState<any>(null)
 
 useEffect(()=>{
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -23,11 +29,11 @@ useEffect(()=>{
 
 
   useEffect(() => {
-    //   getPlacesData().then((data)=>{
-    //   setPlaces(data)
-    //   console.log(data)
-    // })
-  }, [bounds,coordinates])
+  //     getPlacesData().then((data)=>{
+  //     setPlaces(data)
+  //     console.log(data)
+  //  })
+  }, [coordinates, bounds])
 
 
   return (
@@ -35,7 +41,7 @@ useEffect(()=>{
       <CssBaseline />
       <Navbar />
       <Grid container spacing={3} style={{width:'100%' }}>
-        <Grid item xs={12} md={4}><List /></Grid>
+        <Grid item xs={12} md={4}><List places={places}/></Grid>
         <Grid item xs={12} md={8}><Map setCordinates={setCordinates} setBounds={setBounds} coordinates={coordinates}/></Grid>
       </Grid>
 
@@ -45,3 +51,4 @@ useEffect(()=>{
 }
 
 export default App;
+// const [places, setPlaces] =useState<AxiosResponse | null | void>([] as any)

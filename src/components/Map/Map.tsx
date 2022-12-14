@@ -23,13 +23,10 @@ function Map({coordinates, setCordinates, setBounds}:any) {
   }
 
   function handleLoad(map:any) {
-    setMapRef(map);
+    //setMapRef(map);
   }
 const handelcenter =() =>{
-  if (mapref) {
-    const newCenter = mapref;
-    //console.log(newCenter.lat(), newCenter.lng())
-  }
+
 }
 
  return ( 
