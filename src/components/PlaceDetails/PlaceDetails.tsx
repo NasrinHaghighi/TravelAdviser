@@ -7,7 +7,7 @@ import {StyledCard, StyledCardMedia} from './styles'
 
 const PlaceDetails =({place}:any)=> {
   const {awards, cuisine} =place
-  console.log(place)
+  //console.log(place)
   return (
     <StyledCard  sx={{ margin:'20px',    }}>
       <CardActionArea>

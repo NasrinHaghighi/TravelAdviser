@@ -8,18 +8,22 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Grid from '@mui/material/Grid';
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 
+
 interface place{
   place:any
 }
 interface places{
  places:place[]
+ type?:string,
+  setType:React.Dispatch<React.SetStateAction<string>>,
+  rate?:string,
+  setRate:React.Dispatch<React.SetStateAction<string>>
 }
 
 
 
-function List({places}:places) {
-    const [type, setType] =useState<String>('resturants')
-    const [rate, setRate] =useState<String>('')
+function List({places,type, setType, rate, setRate}:places) {
+  
 
 
   return  <>
@@ -38,7 +42,7 @@ function List({places}:places) {
         label="Type"
         onChange={(e)=>setType(e.target.value)}
       >
-        <MenuItem value='resturants'>Resturant</MenuItem>
+        <MenuItem value='restaurants'>Resturant</MenuItem>
         <MenuItem value='hotels'>Hotels</MenuItem>
         <MenuItem value='attractions'>Attraction</MenuItem>
       </Select>
