@@ -19,19 +19,10 @@ interface places{
   rate?:string,
   setRate:React.Dispatch<React.SetStateAction<string>>
 }
-
-
-
 function List({places,type, setType, rate, setRate}:places) {
-  
+return  <>
 
-
-  return  <>
-
-    <Box  sx={{
-   p:5,
-          minWidth: 300,
-        }}>
+    <Box  sx={{  p:5, minWidth: 500,}}>
     <Typography variant="h6" component="h2"> Around you </Typography>
     <FormControl  sx={{minWidth:200 ,marginRight:10}}>
       <InputLabel id="demo-simple-select-label">Type</InputLabel>
@@ -65,7 +56,7 @@ function List({places,type, setType, rate, setRate}:places) {
     </FormControl>
   </Box>
   <Grid container spacing={2}>
-  <Grid item xs={12}>
+  <Grid item xs={12} sx={{height:'100vh', overflow:'scroll'}}>
   {places && places.map((place, i)=>{
     return <Grid key={i} xs={12}>
         <PlaceDetails place={place} />

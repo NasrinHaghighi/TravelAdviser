@@ -15,7 +15,7 @@ function App() {
 
   const [places, setPlaces] =useState([])
   const [fillteredPlaces, setFilterPlaces] =useState([])
-  const [coordinates, setCordinates] =useState({})
+  const [coordinates, setCordinates] =useState( { })
   const [bounds, setBounds] =useState<any>(null)
   const [type, setType] =useState<string>('restaurants')
   const [rate, setRate] =useState<string>('')
@@ -33,14 +33,14 @@ const f=places.filter((p:any)=>{
 setFilterPlaces(f)
 }, [rate])
 
-console.log(fillteredPlaces)
+//console.log(fillteredPlaces)
 
   useEffect(() => {
       // getPlacesData(type).then((data)=>{
       // setPlaces(data)
       // setFilterPlaces([])
       // console.log(data)
-   //})
+  // })
   }, [type, coordinates, bounds])
 
 
@@ -50,7 +50,7 @@ console.log(fillteredPlaces)
       <Navbar />
       <Grid container spacing={3} style={{width:'100%' }}>
         <Grid item xs={12} md={4}><List 
-        places={fillteredPlaces.length ? fillteredPlaces : places} type={type} setType={setType} rate={rate} setRate={setRate}/></Grid>
+        places={fillteredPlaces.length ? fillteredPlaces :places} type={type} setType={setType} rate={rate} setRate={setRate}/></Grid>
         <Grid item xs={12} md={8}><Map setCordinates={setCordinates} setBounds={setBounds} coordinates={coordinates} 
         places={fillteredPlaces.length ? fillteredPlaces :places}/></Grid>
       </Grid>
